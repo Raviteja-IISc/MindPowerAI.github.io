@@ -1,0 +1,219 @@
+/* GENERAL STYLES */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f5f6fa;
+    margin: 0;
+    padding: 0;
+    color: #2f3640;
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    background: #2f3640;
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+header h1 a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    position: relative;
+    transition: 0.3s;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #44bd32;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* CATEGORIES */
+.categories {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.categories a {
+    margin: 5px 12px;
+    padding: 8px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    background: #dcdde1;
+    color: #2f3640;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.categories a.active,
+.categories a:hover {
+    background: #40739e;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* POSTS GRID */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+}
+
+/* POST CARD */
+.post-card {
+    padding: 25px 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    background: white;
+}
+
+.post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* POST TITLE */
+.post-card h3 {
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #2f3640;
+}
+
+/* CATEGORY BADGES WITH BLACK TEXT */
+.post-card .category {
+    font-size: 0.85rem;
+    font-weight: 900; /* extra bold */
+    padding: 5px 10px;
+    border-radius: 8px;
+    color: #000; /* black text */
+    width: fit-content;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* CATEGORY COLORS */
+.post-card[data-category="Yoga"] .category {
+    background: #f39c12; /* orange */
+}
+
+.post-card[data-category="Power Electronics"] .category {
+    background: #0097e6; /* blue */
+}
+
+.post-card[data-category="Artificial Intelligence"] .category {
+    background: #8e44ad; /* purple */
+}
+
+
+
+/* ACTION BUTTONS */
+.actions a, .actions button {
+    margin-right: 6px;
+    background: #40739e;
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.actions a:hover, .actions button:hover {
+    background: #1e272e;
+    transform: translateY(-2px);
+}
+
+/* FORMS */
+form input, form textarea, form select {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    border: 1px solid #dcdde1;
+    transition: 0.3s;
+}
+
+form input:focus, form textarea:focus, form select:focus {
+    outline: none;
+    border-color: #40739e;
+    box-shadow: 0 0 8px rgba(64,115,158,0.3);
+}
+
+form button {
+    background: #44bd32;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background: #1e272e;
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    color: #718093;
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+    }
+
+    nav {
+        margin-top: 12px;
+    }
+
+    .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

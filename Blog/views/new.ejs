@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+
+<h2>New Post</h2>
+<form action="/post" method="POST">
+    <input type="text" name="title" placeholder="Title" required>
+    <textarea name="content" placeholder="Content" required></textarea>
+    <select name="category" required>
+        <% categories.forEach(cat => { %>
+            <option value="<%= cat %>"><%= cat %></option>
+        <% }) %>
+    </select>
+    <button type="submit">Create Post</button>
+</form>
+
+<%- include('partials/footer') %>

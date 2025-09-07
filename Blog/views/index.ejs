@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<div class="categories">
+    <a href="/" class="<%= selectedCategory === 'All' ? 'active' : '' %>">All</a>
+    <% categories.forEach(cat => { %>
+        <a href="/?category=<%= cat %>" class="<%= selectedCategory === cat ? 'active' : '' %>"><%= cat %></a>
+    <% }) %>
+</div>
+
+<div class="posts-grid">
+    <% if (posts.length === 0) { %>
+        <p>No posts yet.</p>
+    <% } else { %>
+        <% posts.forEach(post => { %>
+            <div class="post-card">
+                <h3><%= post.title %></h3>
+                <p><%= post.content %></p>
+                <span class="category"><%= post.category %></span>
+                <div class="actions">
+                    <a href="/post/edit/<%= post.id %>">Edit</a>
+                    <form action="/post/delete/<%= post.id %>" method="POST" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    <% } %>
+</div>
+
+<%- include('partials/footer') %>
