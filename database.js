@@ -1,8 +1,8 @@
+import Database from 'better-sqlite3';
+
+const db = new Database('blog.db');
 
 
-import sqlite3 from 'sqlite3';
-const db = new sqlite3.Database('./blog.db');
-export default db;
 
 // Create posts table if it doesn't exist (without category first)
 db.prepare(`
